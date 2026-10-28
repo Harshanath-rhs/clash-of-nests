@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Of Nests</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        .error-container {
+            display: none;
+            padding: 20px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 20px; }
+        button {
+            background: white;
+            color: #764ba2;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container" id="errorScreen">
+        <h1>Connection Lost</h1>
+        <p>Clash Of Nests requires an active internet connection.</p>
+        <button onclick="window.location.reload()">Retry</button>
+    </div>
+
+    <script>
+        // Check connection before redirecting
+        if (navigator.onLine) {
+            window.location.href = "https://lingo-quiets.streamlit.app/";
+        } else {
+            document.getElementById('errorScreen').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
